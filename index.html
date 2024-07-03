@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fingerprint SDK Test</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { FingerprintSDK } from './src/index.ts'
+      
+      const sdk = new FingerprintSDK();
+      sdk.generateVisitorId().then(visitorId => {
+        console.log('Visitor ID:', visitorId);
+        const visitorIdElement = document.createElement('p');
+        // Set the text content to the visitor ID
+        visitorIdElement.textContent = `Visitor ID: ${visitorId}`;
+        // Append the new element to the #app div
+        document.getElementById('app').appendChild(visitorIdElement);
+      });
+    </script>
+  </body>
+</html>
